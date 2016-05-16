@@ -27,9 +27,9 @@ ActiveRecord::Base.transaction do
   comment.user_id = user.id
   comment.save!
 
-  p "Attribute gets set: #{comment.user_id == user.id}"
-  p "Can use belongs_to relation: #{comment.user == user}"
-  p "Can use belongs_to relation after reload: #{comment.reload.user == user}"
+  p "Attribute gets set: #{comment.user_id == user.id}" # => true
+  p "Can use belongs_to relation: #{comment.user == user}" # => false
+  p "Can use belongs_to relation after reload: #{comment.reload.user == user}" # => false
 
   raise ActiveRecord::Rollback
 end
